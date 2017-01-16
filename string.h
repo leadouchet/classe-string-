@@ -16,6 +16,8 @@ class string {
 //destructors
 	~string();
 
-
+//Getters
+	int length();
+	int max_size();
 
 };

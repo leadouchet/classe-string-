@@ -9,5 +9,7 @@ int main(){
 	char* phrase = new char[255];
 	cin >> phrase;
 	string b = string(phrase);
+	cout<< b.length() <<endl;
+	cout<<b.max_size()<<endl;
 
 }
