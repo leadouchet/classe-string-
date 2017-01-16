@@ -13,6 +13,9 @@ class string {
 	string();
 	string(const char* mot);
 
+//destructors
+	~string();
+
 
 
 };

@@ -2,8 +2,7 @@
 #include <cstdlib>
 #include <cstdio>
 
- 
-//constructors
+//default constructor
 string::string(){
 	capacity_=10;
 	chaine_= new char[capacity_];
@@ -23,4 +22,7 @@ string::string(const char* mot){
 		chaine_[k]=mot[k];
 	}
 
+//destructor
+string::~string(){
+  delete chaine_;
 }
