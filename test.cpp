@@ -11,5 +11,6 @@ int main(){
 	string b = string(phrase);
 	cout<< b.length() <<endl;
 	cout<<b.max_size()<<endl;
-
+	b.resize(3);
+	cout<<b.length()<<endl;
 }

@@ -5,10 +5,12 @@ class string {
 	char* chaine_;
 	int len_;
 	int capacity_;
+	
 
 
 
 	public :
+
 // constructors
 	string();
 	string(const char* mot);
@@ -20,4 +22,6 @@ class string {
 	int length();
 	int max_size();
 
+//methods
+	void resize(const int n);
 };

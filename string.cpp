@@ -17,7 +17,8 @@ string::string(const char* mot){
 		++capacity_;
 	}
 	len_= capacity_;
-	chaine_ = new char[capacity_ + 1];
+	++capacity_;
+	chaine_ = new char[capacity_];
 	for (int k = 0; k <= capacity_ ; ++k){
 		chaine_[k]=mot[k];
 	}
@@ -37,3 +38,18 @@ int string::max_size(){
 	return max_size_;
 }
 
+//methods
+void string::resize(const int n){
+	if (n < len_){
+		char* newword = new char[n+1];
+		for (int i = 0; i <= n-1; ++i){
+			newword[i] = chaine_[i];
+		}
+		delete chaine_;
+		newword[n]='\0';
+		capacity_=n+1;
+		chaine_ = new char [capacity_+1];
+		chaine_ = newword;
+		len_ = n;
+	}
+}
