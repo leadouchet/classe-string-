@@ -2,9 +2,14 @@
 #include <cstdlib>
 #include <stdio.h>
 
-//constructeur par defaut
+//default constructor
 string::string(){
 	capacity_=10;
 	chaine_= new char[capacity_];
 	len_=0;
+}
+
+//destructor
+string::~string(){
+  delete chaine_;
 }

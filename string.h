@@ -10,6 +10,9 @@ class string {
 // constructors
 	string();
 
+//destructors
+	~string();
+
 
 
 };
