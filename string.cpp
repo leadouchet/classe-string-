@@ -21,6 +21,7 @@ string::string(const char* mot){
 	for (int k = 0; k <= capacity_ ; ++k){
 		chaine_[k]=mot[k];
 	}
+}
 
 //destructor
 string::~string(){
