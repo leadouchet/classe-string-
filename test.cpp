@@ -9,5 +9,7 @@ int main(){
 	string b = string(a);
 	char* phrase = new char[255];
 	cin >> phrase;
-	string c = string(phrase);
+
+	string c = string(b);
+	cout << c.size() << endl;
 }

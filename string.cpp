@@ -17,7 +17,8 @@ string::string(const char* mot){
 		++capacity_;
 	}
 	len_= capacity_;
-	chaine_ = new char[capacity_ + 1];
+	++capacity_;
+	chaine_ = new char[capacity_];
 	for (int k = 0; k <= capacity_ ; ++k){
 		chaine_[k]=mot[k];
 	}
@@ -39,7 +40,7 @@ string::~string(){
 }
 
 //getters------------------------------------------------------------
-int string::capacity(){
+size_t string::capacity(){
   return capacity_;
 }
 
@@ -54,6 +55,15 @@ char* string::c_str(){
 	return c;
 }
 
+size_t string::size(){
+	return len_;
+}
+
+void string::clear(){
+	delete chaine_;
+	chaine_ = new char[capacity_];
+	len_ = 0;
+}
 bool string::empty(){
   if(this->length()==0){
     return(true);
