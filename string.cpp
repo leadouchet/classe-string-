@@ -1,14 +1,14 @@
 #include "string.h"
 #include <cstdlib>
-#include <stdio.h>
+#include <cstdio>
 
-//default constructor
+//default constructor-------------------------------------------------
 string::string(){
 	capacity_=10;
 	chaine_= new char[capacity_];
 	len_=0;
 }
-//constructeurs
+//constructors----------------------------------------------------
 string::string(const char* mot){
 	int i = 0;
 	capacity_ = 0;
@@ -23,12 +23,33 @@ string::string(const char* mot){
 	}
 }
 
-//destructor
+string::string(const string& s){
+	capacity_ = s.capacity_;
+	len_ = s.len_;
+	chaine_ = new char[capacity_];
+	for(int k = 0 ; k!=len_+1 ; k++){
+		chaine_[k] = s.chaine_[k];
+	}	
+}
+
+
+//destructor--------------------------------------------------------------
 string::~string(){
   delete chaine_;
 }
 
-//getters
+//getters------------------------------------------------------------
 int string::capacity(){
   return capacity_;
+}
+
+
+//method---------------------------------------------------------
+
+char* string::c_str(){
+	char* c = new char[capacity_];
+	for(int k = 0 ; k!=len_+1 ; k++){
+		c[k] = chaine_[k];
+	}
+	return c;
 }

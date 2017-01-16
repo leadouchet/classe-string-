@@ -11,15 +11,16 @@ class string {
 	public :
 // constructors
 	string();
+	string(const string& s);
 	string(const char* mot);
 
 //destructors
 	~string();
-
 	
 //getters
 	int capacity();
 
-
+// method
+	char* c_str();
 
 };
