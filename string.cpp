@@ -15,6 +15,16 @@ string::string(const string& s){
 	chaine_ = new char[capacity_];
 	for(int k = 0 ; k!=len_+1 ; k++){
 		chaine_[k] = s.chaine_[k];
+	}	
+}
+
+
+//method
+
+char* string::c_str(){
+	char* c = new char[capacity_];
+	for(int k = 0 ; k!=len_+1 ; k++){
+		c[k] = chaine_[k];
 	}
-	
+	return c;
 }

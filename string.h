@@ -12,4 +12,7 @@ class string {
 	string(const string& s);
 
 
+// method
+	char* c_str();
+
 };
