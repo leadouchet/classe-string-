@@ -3,8 +3,8 @@ class string {
 	protected : 
 	int const max_size_=100;
 	char* chaine_;
-	int len_;
-	int capacity_;
+	size_t len_;
+	size_t capacity_;
 	
 
 
@@ -22,7 +22,7 @@ class string {
 
 // method
 	char* c_str();
-	int size();
+	size_t size();
 	void clear();
 };
 

@@ -40,7 +40,7 @@ string::~string(){
 
 
 //getters------------------------------------------------------------
-int string::capacity(){
+size_t string::capacity(){
   return capacity_;
 }
 
@@ -58,7 +58,7 @@ char* string::c_str(){
 	return c;
 }
 
-int string::size(){
+size_t string::size(){
 	return len_;
 }
 
