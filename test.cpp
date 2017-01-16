@@ -13,4 +13,6 @@ int main(){
 	cout<<b.max_size()<<endl;
 	b.resize(3);
 	cout<<b.length()<<endl;
+	string c = string(b);
+	cout << c.size() << endl;
 }
