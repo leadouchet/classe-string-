@@ -2,13 +2,13 @@
 #include <cstdlib>
 #include <cstdio>
 
-//default constructor
+//default constructor-------------------------------------------------
 string::string(){
 	capacity_=10;
 	chaine_= new char[capacity_];
 	len_=0;
 }
-//
+//constructors----------------------------------------------------
 string::string(const char* mot){
 	int i = 0;
 	capacity_ = 0;
@@ -24,11 +24,6 @@ string::string(const char* mot){
 	}
 }
 
-//destructor
-string::~string(){
-  delete chaine_;
-}
-
 string::string(const string& s){
 	capacity_ = s.capacity_;
 	len_ = s.len_;
@@ -38,8 +33,22 @@ string::string(const string& s){
 	}	
 }
 
+//destructor---------------------------------------------------------
+string::~string(){
+  delete chaine_;
+}
 
-//method
+
+//getters------------------------------------------------------------
+int string::capacity(){
+  return capacity_;
+}
+
+
+//method---------------------------------------------------------
+
+
+
 
 char* string::c_str(){
 	char* c = new char[capacity_];
