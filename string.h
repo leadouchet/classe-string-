@@ -1,4 +1,5 @@
 class string {
+
 	protected : 
 	char* chaine_;
 	int len_;
@@ -10,7 +11,10 @@ class string {
 // constructors
 	string();
 	string(const string& s);
+	string(const char* mot);
 
+//destructors
+	~string();
 
 // method
 	char* c_str();
