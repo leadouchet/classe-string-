@@ -22,5 +22,7 @@ class string {
 
 // method
 	char* c_str();
+	bool empty();
+	void reserve();
 
 };

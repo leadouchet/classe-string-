@@ -53,3 +53,17 @@ char* string::c_str(){
 	}
 	return c;
 }
+
+bool string::empty(){
+  if(this->length()==0){
+    return(true);
+  }
+  else {
+    return(false);
+  }
+}
+
+void string::reserve(){
+
+
+}
