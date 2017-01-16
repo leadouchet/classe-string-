@@ -13,3 +13,8 @@ string::string(){
 string::~string(){
   delete chaine_;
 }
+
+//getters
+int string::capacity(){
+  return capacity_;
+}

@@ -13,6 +13,10 @@ class string {
 //destructors
 	~string();
 
+	
+//getters
+	int capacity();
+
 
 
 };
