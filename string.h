@@ -19,4 +19,5 @@ class string {
 // method
 	char* c_str();
 	int size();
+	void clear();
 };
