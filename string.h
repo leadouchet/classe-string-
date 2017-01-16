@@ -1,11 +1,14 @@
 class string {
 	protected : 
-	char* chaine;
+	char* chaine_;
 	int len_;
 	int capacity_;
-	const int max_size;
+	int const max_size_=100;
 
 
+	public :
+// constructors
+	string();
 
 
 
