@@ -3,5 +3,5 @@
 
 int main(){
 	string a = string();
-
+	string b = string(a);
 }

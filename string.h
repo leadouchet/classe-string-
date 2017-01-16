@@ -9,7 +9,7 @@ class string {
 	public :
 // constructors
 	string();
-
+	string(const string& s);
 
 
 };
