@@ -18,7 +18,7 @@ string::string(const char* mot){
 	}
 	len_= capacity_;
 	++capacity_;
-	chaine_ = new char[capacity_];
+	chaine_ = new char[capacity_+1];
 	for (int k = 0; k <= capacity_ ; ++k){
 		chaine_[k]=mot[k];
 	}
@@ -27,13 +27,13 @@ string::string(const char* mot){
 string::string(const string& s){
 	capacity_ = s.capacity_;
 	len_ = s.len_;
-	chaine_ = new char[capacity_];
+	chaine_ = new char[capacity_+1];
 	for(int k = 0 ; k!=len_+1 ; k++){
 		chaine_[k] = s.chaine_[k];
 	}	
 }
 //getters------------------------------------------------------------
-size_t string::capacity(){
+int string::capacity(){
   return capacity_;
 }
 
@@ -41,6 +41,9 @@ int string::length(){
 	return len_;
 }
 
+int string::max_size(){
+	return max_size_;
+}
 //destructor--------------------------------------------------------------
 string::~string(){
   delete chaine_;
@@ -56,7 +59,7 @@ char* string::c_str(){
 	return c;
 }
 
-size_t string::size(){
+int string::size(){
 	return len_;
 }
 
@@ -91,5 +94,16 @@ void string::resize(const int n){
 		chaine_ = newword;
 		len_ = n;
 	}
+	if (n > len_){
+		capacity_=n;
+		char* newword = new char[capacity_+1];
+		for (int i = 0; i <= len_+1; ++i){
+			newword[i] = chaine_[i];
+		}		
+		delete chaine_;
+		chaine_=newword;
+
+	}
+
 }
 

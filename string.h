@@ -2,10 +2,9 @@ class string {
 
 	protected : 
 	int const max_size_=100;
-	char* chaine_;
-	size_t len_;
-	size_t capacity_;
-	
+	int len_;
+	int capacity_;
+	char* chaine_;	
 
 
 	public :
@@ -13,6 +12,7 @@ class string {
 	string();
 	string(const string& s);
 	string(const char* mot);
+
 
 //destructors
 	~string();
@@ -26,7 +26,7 @@ class string {
 	char* c_str();
 	bool empty();
 	void reserve();
-	size_t size();
+	int size();
 	void clear();
 	void resize(const int n);
 };
