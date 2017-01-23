@@ -22,5 +22,5 @@ int main(){
 	cout<<a.length()<<endl;
 	cout<<a.capacity()<<endl;
 	cout << a.c_str() << endl;
-
+	delete [] phrase;
 }

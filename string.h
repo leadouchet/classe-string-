@@ -3,7 +3,8 @@
 
 class string {
 	friend string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
-
+	friend string operator+ (const string& lhs, char rhs);
+	
 	protected : 
 	size_t const max_size_=100;			// Max capacity
 	size_t len_;						// Length of the string
@@ -37,3 +38,4 @@ class string {
 
 // out member functions : 
 string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
+string operator+ (const string& lhs, char rhs); // + operator for concatenation of string with char

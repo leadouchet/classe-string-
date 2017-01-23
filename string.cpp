@@ -136,11 +136,20 @@ string operator+ (const string& lhs, const char* rhs){
 	string chaine2 = string(rhs);
 	string concate = string(lhs);
 	concate.len_ = lhs.len_ + chaine2.len_;
-	concate.resize(concate.len_);
+	concate.resize(concate.len_+1);
 	for(int i = 0; i < chaine2.len_; ++i){
 		concate.chaine_[lhs.len_+i] = rhs[i];
 	}
 	concate.chaine_[concate.len_] = '\0';
 	return(concate);
 	}
+}
+
+// + operator for concatenation of string with char
+string operator+ (const string& lhs, char rhs){
+	string concate = string(lhs);
+	concate.len_ = lhs.len_ + 1;
+	concate.resize(concate.len_+1);
+	concate.chaine_[concate.len_] = rhs;
+	concate.chaine_[concate.len_+1] = '\0';
 }
