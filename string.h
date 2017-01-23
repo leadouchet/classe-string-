@@ -1,10 +1,10 @@
 class string {
 
 	protected : 
-	int const max_size_=100;		// Max capacity
-	int len_;						// Length of the string
-	int capacity_;					// Current capacity 
-	char* chaine_;					// Array of char (content of the string)
+	size_t const max_size_=100;			// Max capacity
+	size_t len_;						// Length of the string
+	size_t capacity_;					// Current capacity 
+	char* chaine_;						// Array of char (content of the string)
 
 
 	public :
@@ -18,14 +18,14 @@ class string {
 	~string();
 	
 //getters
-	int capacity() const;    
-	int length();
-	int max_size();
+	size_t capacity();
+	size_t length() const;
+	size_t max_size() const;
 	const char* c_str() const;					// Return C string equivalent
 // method
 	bool empty();					// Test if string is empty
 	void reserve();					// Request a change in capacity
-	int size();						// Return length of string
+	size_t size();						// Return length of string
 	void clear();					// Clear string
 	void resize(const int n);		// Resize string
 };

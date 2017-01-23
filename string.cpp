@@ -33,15 +33,15 @@ string::string(const string& s){
 	}	
 }
 //getters------------------------------------------------------------
-int string::capacity() const{
+size_t string::capacity() const{
   return capacity_;
 }
 
-int string::length(){
+size_t string::length(){
 	return len_;
 }
 
-int string::max_size(){
+size_t string::max_size(){
 	return max_size_;
 }
 
@@ -56,7 +56,7 @@ string::~string(){
 //method---------------------------------------------------------
 
 
-int string::size(){
+size_t string::size(){
 	return len_;
 }
 
