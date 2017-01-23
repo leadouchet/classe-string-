@@ -12,5 +12,7 @@ int main(){
 	a = 'c';
 	cout << a.c_str() << endl;
 	a = b;
+	b = 'd';
 	cout << a.c_str() << endl;
+	cout << b.c_str() << endl;
 }
