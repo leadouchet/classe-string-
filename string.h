@@ -1,3 +1,6 @@
+#include <cstdlib>
+#include <cstdio>
+
 class string {
 
 	protected : 
@@ -26,7 +29,8 @@ class string {
 	char* c_str();					// Return C string equivalent
 	bool empty();					// Test if string is empty
 	void reserve();					// Request a change in capacity
-	size_t size();						// Return length of string
+	size_t size();					// Return length of string
 	void clear();					// Clear string
 	void resize(const int n);		// Resize string
+	string& operator= (char c); 	// affectation operator for a charactere
 };

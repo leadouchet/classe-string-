@@ -37,11 +37,11 @@ size_t string::capacity(){
   return capacity_;
 }
 
-size_t string::length(){
+size_t string::length() const{
 	return len_;
 }
 
-size_t string::max_size(){
+size_t string::max_size() const{
 	return max_size_;
 }
 //destructor--------------------------------------------------------------
@@ -64,7 +64,7 @@ size_t string::size(){
 }
 
 void string::clear(){
-	delete chaine_;
+	delete[] chaine_;
 	chaine_ = new char[capacity_];
 	len_ = 0;
 }
@@ -87,7 +87,7 @@ void string::resize(const int n){
 		for (int i = 0; i <= n-1; ++i){
 			newword[i] = chaine_[i];
 		}
-		delete chaine_;
+		delete[] chaine_;
 		newword[n]='\0';
 		capacity_=n+1;
 		chaine_ = new char [capacity_+1];
@@ -100,10 +100,19 @@ void string::resize(const int n){
 		for (int i = 0; i <= len_+1; ++i){
 			newword[i] = chaine_[i];
 		}		
-		delete chaine_;
+		delete[] chaine_;
 		chaine_=newword;
-
 	}
-
 }
+
+string& string::operator= (char c){
+	delete[] chaine_;
+	chaine_ = new char[2];
+	chaine_[0] = c;
+	chaine_ [1] = '\0';
+	len_ = 1;
+	return *this;
+}
+
+
 
