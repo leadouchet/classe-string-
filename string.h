@@ -1,9 +1,9 @@
 class string {
 
 	protected : 
-	int const max_size_=100;
-	int len_;
-	int capacity_;
+	size_t const max_size_=100;
+	size_t len_;
+	size_t capacity_;
 	char* chaine_;	
 
 
@@ -18,15 +18,15 @@ class string {
 	~string();
 	
 //getters
-	int capacity();
-	int length();
-	int max_size();
+	size_t capacity();
+	size_t length() const;
+	size_t max_size() const;
 
 // method
 	char* c_str();
 	bool empty();
 	void reserve();
-	int size();
+	size_t size();
 	void clear();
 	void resize(const int n);
 };
