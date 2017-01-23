@@ -149,7 +149,8 @@ string operator+ (const string& lhs, const char* rhs){
 string operator+ (const string& lhs, char rhs){
 	string concate = string(lhs);
 	concate.len_ = lhs.len_ + 1;
-	concate.resize(concate.len_+1);
+	concate.resize(concate.len_);
 	concate.chaine_[concate.len_] = rhs;
 	concate.chaine_[concate.len_+1] = '\0';
+	return concate;
 }

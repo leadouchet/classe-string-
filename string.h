@@ -37,5 +37,5 @@ class string {
 };
 
 // out member functions : 
-string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
-string operator+ (const string& lhs, char rhs); // + operator for concatenation of string with char
+string operator+ (const string& lhs, const char* rhs); 	// + operator for concatenation of string with c-string
+string operator+ (const string& lhs, char rhs); 		// + operator for concatenation of string with char
