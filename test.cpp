@@ -14,7 +14,6 @@ int main(){
 	b.resize(7);
 	cout<<b.length()<<endl;
 	cout<<b.capacity()<<endl;
-	cout<<b.chaine_<<endl;
 	string c = string(b);
 	cout << c.size() << endl;
 }

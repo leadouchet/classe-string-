@@ -37,11 +37,11 @@ size_t string::capacity() const{
   return capacity_;
 }
 
-size_t string::length(){
+size_t string::length() const{
 	return len_;
 }
 
-size_t string::max_size(){
+size_t string::max_size() const{
 	return max_size_;
 }
 
@@ -50,13 +50,14 @@ const char* string::c_str() const{
 }
 //destructor--------------------------------------------------------------
 string::~string(){
-  delete chaine_;
+  delete[] chaine_;
+  chaine_= nullptr;
 }
 
 //method---------------------------------------------------------
 
 
-size_t string::size(){
+size_t string::size() const{
 	return len_;
 }
 
@@ -65,7 +66,7 @@ void string::clear(){
 	chaine_ = new char[capacity_];
 	len_ = 0;
 }
-bool string::empty(){
+bool string::empty() const{
   if(this->length()==0){
     return(true);
   }

@@ -1,3 +1,7 @@
+
+#include <cstdlib>
+#include <cstdio>
+
 class string {
 
 	protected : 
@@ -18,14 +22,14 @@ class string {
 	~string();
 	
 //getters
-	size_t capacity();
+	size_t capacity() const;
 	size_t length() const;
 	size_t max_size() const;
 	const char* c_str() const;					// Return C string equivalent
 // method
-	bool empty();					// Test if string is empty
+	bool empty() const;					// Test if string is empty
 	void reserve();					// Request a change in capacity
-	size_t size();						// Return length of string
+	size_t size() const;						// Return length of string
 	void clear();					// Clear string
 	void resize(const int n);		// Resize string
 };
