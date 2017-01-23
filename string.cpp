@@ -114,9 +114,13 @@ string& string::operator= (char c){
 	return *this;
 }
 
-string& operator= (const string& str){
+string& string::operator= (const string str){
 	delete [] chaine_;
-	chaine_ = new char[str.capacity()];
-	chaine_ = str.c_str();
+	len_ = str.len_;
+	capacity_ = str.capacity_;
+	chaine_ = new char[capacity_];
+	for (int k = 0 ; k != len_+1 ; k++){
+		chaine_[k] = str.chaine_[k];
+	}
 	return *this;
 }
