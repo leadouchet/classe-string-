@@ -1,16 +1,37 @@
 #include "string.h"
 #include <stdio.h>
 #include <iostream>
+
 using std::cout;
 using std::endl;
 using std::cin;
+
+
+
 int main(){
-  char* test = new char[255];
-  test[0]='a';
-  test[1]='b';
-  test[2]=' ';
-  test[3]='c';
-  string a = string();
-  a=test;
-  cout << a.capacity()<<' '<<a.length()<<' '<<a.max_size()<<' '<<a.c_str()<<endl;
+	string a = string();
+	char* phrase = new char[255];
+	cin >> phrase;
+	string b = string(phrase);
+	cout<< b.length() <<endl;
+	cout << b.capacity()<<endl;
+	cout<<b.max_size()<<endl;
+	b.resize(7);
+	a = 'c';
+	string oper = a + phrase;
+	cout <<  oper.c_str() << endl;
+	cout << oper.length() << endl;
+
+	cout<<b.length()<<endl;
+	cout<<b.capacity()<<endl;
+	string c = string(b);
+	cout << c.size() << endl;
+	a = 'c';
+	cout<<a.length()<<endl;
+	cout<<a.capacity()<<endl;
+	cout << a.c_str() << endl;
+
+	string oper2 = a + 'd';
+	cout <<  oper2.c_str() << endl;
+	cout << oper2.length() << endl;
 }
