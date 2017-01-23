@@ -2,6 +2,9 @@
 #include <cstdlib>
 #include <cstdio>
 
+//static attribute
+const size_t  string::max_size_=100;
+
 //default constructor
 string::string(){
 	capacity_=10;
@@ -10,17 +13,11 @@ string::string(){
 }
 //constructors----------------------------------------------------
 string::string(const char* mot){
-	int i = 0;
-	capacity_ = 0;
-	while (mot[i] != '\0'){
-		++i;
-		++capacity_;
-	}
-	len_= capacity_;
-	++capacity_;
-	chaine_ = new char[capacity_+1];
-	for (int k = 0; k <= capacity_ ; ++k){
-		chaine_[k]=mot[k];
+  len_=len_char(mot);
+  capacity_ = len_+1;
+  chaine_ = new char[capacity_];
+  for (int k = 0; k <= capacity_ ; ++k){
+    chaine_[k]=mot[k];
 	}
 }
 
@@ -62,12 +59,12 @@ size_t string::size() const{
 }
 
 void string::clear(){
-	delete chaine_;
+	delete[] chaine_;
 	chaine_ = new char[capacity_];
 	len_ = 0;
 }
 bool string::empty() const{
-  if(this->length()==0){
+  if(len_==0){
     return(true);
   }
   else {
@@ -75,7 +72,12 @@ bool string::empty() const{
   }
 }
 
-void string::reserve(){
+void string::reserve(size_t n/*=0*/){
+  if (n<=max_size_ && n>capacity_){
+     const int int_n = n;
+     this->resize(int_n);
+    }
+
 
 
 }
@@ -105,3 +107,33 @@ void string::resize(const int n){
 
 }
 
+//operator 
+
+string& string::operator= (const char* s){
+  delete [] chaine_;
+  capacity_=len_char(s)+1;
+  len_=len_char(s);
+  cpy_mem(s);
+}
+
+
+
+//private
+
+
+size_t string::len_char(const char* mot){
+    size_t compt=0;
+    while (mot[compt] != '\0'){
+	++compt;
+    }
+    return(compt);
+    
+  }
+
+void string::cpy_mem(const char* mot){
+  chaine_ = new char[capacity_];
+  for(int k = 0 ; k!=len_+1 ; k++){
+    chaine_[k] = mot[k];
+  }
+}
+  

@@ -5,16 +5,12 @@ using std::cout;
 using std::endl;
 using std::cin;
 int main(){
-	string a = string();
-	char* phrase = new char[255];
-	cin >> phrase;
-	string b = string(phrase);
-	cout<< b.length() <<endl;
-	cout<<b.max_size()<<endl;
-	b.resize(7);
-	cout<<b.length()<<endl;
-	cout<<b.capacity()<<endl;
-	
-	string c = string(b);
-	cout << c.size() << endl;
+  char* test = new char[255];
+  test[0]='a';
+  test[1]='b';
+  test[2]=' ';
+  test[3]='c';
+  string a = string();
+  a=test;
+  cout << a.capacity()<<' '<<a.length()<<' '<<a.max_size()<<' '<<a.c_str()<<endl;
 }
