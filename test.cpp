@@ -14,13 +14,13 @@ int main(){
 	cin >> phrase;
 	string b = string(phrase);
 	cout<< b.length() <<endl;
+	cout << b.capacity()<<endl;
 	cout<<b.max_size()<<endl;
 	b.resize(7);
 	a = 'c';
 	string oper = a + phrase;
 	cout <<  oper.c_str() << endl;
 	cout << oper.length() << endl;
-
 
 	cout<<b.length()<<endl;
 	cout<<b.capacity()<<endl;

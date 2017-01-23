@@ -18,7 +18,7 @@ string::string(const char* mot){
 	}
 	len_= capacity_;
 	++capacity_;
-	chaine_ = new char[capacity_+1];
+	chaine_ = new char[capacity_];
 	for (int k = 0; k <= capacity_ ; ++k){
 		chaine_[k]=mot[k];
 	}
@@ -27,7 +27,7 @@ string::string(const char* mot){
 string::string(const string& s){
 	capacity_ = s.capacity_;
 	len_ = s.len_;
-	chaine_ = new char[capacity_+1];
+	chaine_ = new char[capacity_];
 	for(int k = 0 ; k!=len_+1 ; k++){
 		chaine_[k] = s.chaine_[k];
 	}	
@@ -82,21 +82,20 @@ void string::reserve(){
 
 void string::resize(const size_t n){
 	if (n < len_){
-		char* newword = new char[n+1];
+		char* newword = new char[n];
 		for (int i = 0; i <= n-1; ++i){
 			newword[i] = chaine_[i];
 		}
 		delete[] chaine_;
 		newword[n]='\0';
-		capacity_=n+1;
-		chaine_ = new char [capacity_+1];
+		capacity_=n;
 		chaine_ = newword;
-		len_ = n;
+		len_ = n-1;
 	}
 	if (n > len_){
 		capacity_=n;
-		char* newword = new char[capacity_+1];
-		for (int i = 0; i <= len_+1; ++i){
+		char* newword = new char[capacity_];
+		for (int i = 0; i <= len_; ++i){
 			newword[i] = chaine_[i];
 		}		
 		delete[] chaine_;
@@ -108,18 +107,14 @@ void string::resize(const size_t n){
 void string::resize (size_t n, char c){
 	resize(n);
 	if (n > len_){
-		for (int i = len_ ; i <= n ; ++i){
+		for (int i = len_ ; i < n ; ++i){
 			chaine_[i] = c;
 		}
-	len_=n;
-	chaine_[n+1]='\0';
+	len_ = n-1;
+	chaine_[n] = '\0';
 	}
-
-
-
-
-
 }
+
 
 string& string::operator= (char c){
 	delete[] chaine_;
@@ -152,11 +147,11 @@ string operator+ (const string& lhs, const char* rhs){
 	string chaine2 = string(rhs);
 	string concate = string(lhs);
 	concate.len_ = lhs.len_ + chaine2.len_;
-	concate.resize(concate.len_);
+	concate.resize(concate.len_ + 1);
 	for(int i = 0; i < chaine2.len_; ++i){
 		concate.chaine_[lhs.len_+i] = rhs[i];
 	}
-	concate.chaine_[concate.len_] = '\0';
+	concate.chaine_[concate.len_+1] = '\0';
 	return(concate);
 	}
 }
