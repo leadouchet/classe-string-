@@ -7,28 +7,32 @@ using std::endl;
 using std::cin;
 
 
-
 int main(){
-	string a = string();
 	char* phrase = new char[255];
-	cin >> phrase;
+	cin >> phrase ;
+	//constructor : 
+	string a = string(); 
 	string b = string(phrase);
-	cout<< b.length() <<endl;
-	cout << b.capacity()<<endl;
-	cout<<b.max_size()<<endl;
+	string c = string(b);
+
+	// getters : 
+	cout << "length = " << b.length() << " capacity = " << b.capacity() << endl;
+	cout << " max_size = " << b.max_size() << " chaine = " << b.c_str() << 
+	" size b = " << b.size() << endl;
+
+	// methods : 
 	b.resize(7);
+	cout << "length " << b.length() << " capacity " << b.capacity() << endl;
+	cout << "a vide ? " << a.empty() << " b vide ? " << b.empty() << endl;
+	c.clear();
+	cout << c.length() << endl;
+
+	
+	//operators : 
 	a = 'c';
 	string oper = a + phrase;
-	cout <<  oper.c_str() << endl;
-	cout << oper.length() << endl;
-
-	cout<<b.length()<<endl;
-	cout<<b.capacity()<<endl;
-	string c = string(b);
-	cout << c.size() << endl;
-	a = 'c';
-	cout<<a.length()<<endl;
-	cout<<a.capacity()<<endl;
-	cout << a.c_str() << endl;
-
+	cout << "length = " << a.length() << " capacity = " << a.capacity() << endl;
+	cout << " chaine = " << a.c_str() << endl;
+	c = b;
+	cout << " chaine = " << c.c_str() << endl;
 }

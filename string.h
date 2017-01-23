@@ -28,12 +28,12 @@ class string {
 // method
 	bool empty() const;					// Test if string is empty
 	void reserve();					// Request a change in capacity
-	size_t size() const;						// Return length of string
+	size_t size() const;			// Return length of string
 	void clear();					// Clear string
-	void resize(const size_t n);
-	void resize (size_t n, char c);		// Resize string
+	void resize(const size_t n);		//resize string
+	void resize (size_t n, char c);		// Resize string and add character in the empty places
 	string& operator= (char c); 	// affectation operator for a character
-	string& operator= (const string str);
+	string& operator= (const string str); // affectation operator for a string
 };
 
 // out member functions : 
