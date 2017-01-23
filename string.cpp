@@ -79,6 +79,7 @@ void string::reserve(){
 
 
 }
+
 void string::resize(const int n){
 	if (n < len_){
 		char* newword = new char[n+1];
@@ -100,6 +101,7 @@ void string::resize(const int n){
 		}		
 		delete[] chaine_;
 		chaine_=newword;
+
 	}
 }
 
@@ -112,6 +114,16 @@ string& string::operator= (char c){
 	return *this;
 }
 
+string& string::operator= (const string str){
+	delete [] chaine_;
+	len_ = str.len_;
+	capacity_ = str.capacity_;
+	chaine_ = new char[capacity_];
+	for (int k = 0 ; k != len_+1 ; k++){
+		chaine_[k] = str.chaine_[k];
+	}
+	return *this;
+}
 
 //-------------------------------------------------------------------------------
 //      out member functions
@@ -132,4 +144,3 @@ string operator+ (const string& lhs, const char* rhs){
 	return(concate);
 	}
 }
-
