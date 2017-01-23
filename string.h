@@ -2,6 +2,7 @@
 #include <cstdio>
 
 class string {
+	friend string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
 
 	protected : 
 	size_t const max_size_=100;			// Max capacity
@@ -15,7 +16,6 @@ class string {
 	string();						// Default constructor
 	string(const string& s);		// Copy constructor
 	string(const char* mot);		// Constructor from char*
-
 
 //destructors
 	~string();
@@ -33,3 +33,6 @@ class string {
 	void resize(const int n);		// Resize string
 	string& operator= (char c); 	// affectation operator for a charactere
 };
+
+// out member functions : 
+string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string

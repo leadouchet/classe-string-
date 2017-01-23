@@ -113,4 +113,23 @@ string& string::operator= (char c){
 }
 
 
+//-------------------------------------------------------------------------------
+//      out member functions
+// concatenate operator (+) for one object of the string class and a c-string
+string operator+ (const string& lhs, const char* rhs){
+	if (lhs.empty()){
+		return string(rhs);
+	}
+	else {
+	string chaine2 = string(rhs);
+	string concate = string(lhs);
+	concate.len_ = lhs.len_ + chaine2.len_;
+	concate.resize(concate.len_);
+	for(int i = 0; i < chaine2.len_; ++i){
+		concate.chaine_[lhs.len_+i] = rhs[i];
+	}
+	concate.chaine_[concate.len_] = '\0';
+	return(concate);
+	}
+}
 
