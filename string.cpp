@@ -33,7 +33,7 @@ string::string(const string& s){
 	}	
 }
 //getters------------------------------------------------------------
-size_t string::capacity(){
+size_t string::capacity() const{
   return capacity_;
 }
 
@@ -44,22 +44,20 @@ size_t string::length() const{
 size_t string::max_size() const{
 	return max_size_;
 }
+
+const char* string::c_str() const{
+	return chaine_;
+}
 //destructor--------------------------------------------------------------
 string::~string(){
-  delete chaine_;
+  delete[] chaine_;
+  chaine_= nullptr;
 }
 
 //method---------------------------------------------------------
 
-char* string::c_str(){
-	char* c = new char[capacity_];
-	for(int k = 0 ; k!=len_+1 ; k++){
-		c[k] = chaine_[k];
-	}
-	return c;
-}
 
-size_t string::size(){
+size_t string::size() const{
 	return len_;
 }
 
@@ -68,7 +66,7 @@ void string::clear(){
 	chaine_ = new char[capacity_];
 	len_ = 0;
 }
-bool string::empty(){
+bool string::empty() const{
   if(this->length()==0){
     return(true);
   }
