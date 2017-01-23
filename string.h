@@ -30,7 +30,8 @@ class string {
 	void reserve();					// Request a change in capacity
 	size_t size() const;						// Return length of string
 	void clear();					// Clear string
-	void resize(const int n);		// Resize string
+	void resize(const size_t n);
+	void resize (size_t n, char c);		// Resize string
 	string& operator= (char c); 	// affectation operator for a character
 	string& operator= (const string str);
 };

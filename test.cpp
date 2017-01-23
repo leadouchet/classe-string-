@@ -15,15 +15,15 @@ int main(){
 	string b = string(phrase);
 	cout<< b.length() <<endl;
 	cout<<b.max_size()<<endl;
-	b.resize(7);
+	b.resize(7,'c');
+	cout<<b.length()<<endl;
+	cout<<b.capacity()<<endl;
+	cout << b.c_str() << endl;
 	a = 'c';
 	string oper = a + phrase;
 	cout <<  oper.c_str() << endl;
 	cout << oper.length() << endl;
 
-
-	cout<<b.length()<<endl;
-	cout<<b.capacity()<<endl;
 	string c = string(b);
 	cout << c.size() << endl;
 	a = 'c';

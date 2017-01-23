@@ -80,7 +80,7 @@ void string::reserve(){
 
 }
 
-void string::resize(const int n){
+void string::resize(const size_t n){
 	if (n < len_){
 		char* newword = new char[n+1];
 		for (int i = 0; i <= n-1; ++i){
@@ -103,6 +103,22 @@ void string::resize(const int n){
 		chaine_=newword;
 
 	}
+}
+
+void string::resize (size_t n, char c){
+	resize(n);
+	if (n > len_){
+		for (int i = len_ ; i <= n ; ++i){
+			chaine_[i] = c;
+		}
+	len_=n;
+	chaine_[n+1]='\0';
+	}
+
+
+
+
+
 }
 
 string& string::operator= (char c){
