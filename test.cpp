@@ -7,6 +7,7 @@ using std::endl;
 using std::cin;
 
 
+
 int main(){
 	char* phrase = new char[255];
 	cin >> phrase ;
