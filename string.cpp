@@ -191,8 +191,8 @@ string operator+ (const string& lhs, char rhs){
 	string concate = string(lhs);
 	concate.len_ = lhs.len_ + 1;
 	concate.resize(concate.len_+1);
-	concate.chaine_[concate.len_] = rhs;
-	concate.chaine_[concate.len_+1] = '\0';
+	concate.chaine_[concate.len_-1] = rhs;
+	concate.chaine_[concate.len_] = '\0';
 	return concate;
 }
 
