@@ -79,6 +79,7 @@ void string::reserve(){
 
 
 }
+
 void string::resize(const int n){
 	if (n < len_){
 		char* newword = new char[n+1];
@@ -105,3 +106,8 @@ void string::resize(const int n){
 
 }
 
+string& operator= (const string& str){
+	delete [] chaine_;
+	chaine_ = new char[str.capacity()];
+	chaine_ = str.c_str();
+}
