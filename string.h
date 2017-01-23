@@ -36,6 +36,7 @@ class string {
 	string& operator=(const char* s);
 	friend string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
 	friend string operator+ (const string& lhs, char rhs);
+	friend string operator+ (const string& lhs, const string& rhs);
 	
 
        private :

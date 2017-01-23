@@ -196,4 +196,14 @@ string operator+ (const string& lhs, char rhs){
 	return concate;
 }
 
+string operator+ (const string& lhs, const string& rhs){
+	string chaine2 = string(rhs);
+	string concate = string(lhs);
+	concate.len_ = lhs.len_ + chaine2.len_;
+	concate.resize(concate.len_ + 1);
+	for(int i = 0; i < chaine2.len_; ++i){
+		concate.chaine_[lhs.len_+i] = rhs[i];
+	concate.chaine_[concate.len_+1] = '\0';
+	return(concate);
+	}
 
