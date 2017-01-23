@@ -1,32 +1,32 @@
 class string {
 
 	protected : 
-	int const max_size_=100;
-	int len_;
-	int capacity_;
-	char* chaine_;	
+	int const max_size_=100;		// Max capacity
+	int len_;						// Length of the string
+	int capacity_;					// Current capacity 
+	char* chaine_;					// Array of char (content of the string)
 
 
 	public :
 // constructors
-	string();
-	string(const string& s);
-	string(const char* mot);
+	string();						// Default constructor
+	string(const string& s);		// Copy constructor
+	string(const char* mot);		// Constructor from char*
 
 
 //destructors
 	~string();
 	
 //getters
-	int capacity();
+	int capacity();    
 	int length();
 	int max_size();
 
 // method
-	char* c_str();
-	bool empty();
-	void reserve();
-	int size();
-	void clear();
-	void resize(const int n);
+	char* c_str();					// Return C string equivalent
+	bool empty();					// Test if string is empty
+	void reserve();					// Request a change in capacity
+	int size();						// Return length of string
+	void clear();					// Clear string
+	void resize(const int n);		// Resize string
 };
