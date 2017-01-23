@@ -18,12 +18,11 @@ class string {
 	~string();
 	
 //getters
-	int capacity();    
+	int capacity() const;    
 	int length();
 	int max_size();
-
+	const char* c_str() const;					// Return C string equivalent
 // method
-	char* c_str();					// Return C string equivalent
 	bool empty();					// Test if string is empty
 	void reserve();					// Request a change in capacity
 	int size();						// Return length of string

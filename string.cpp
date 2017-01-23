@@ -33,7 +33,7 @@ string::string(const string& s){
 	}	
 }
 //getters------------------------------------------------------------
-int string::capacity(){
+int string::capacity() const{
   return capacity_;
 }
 
@@ -44,6 +44,10 @@ int string::length(){
 int string::max_size(){
 	return max_size_;
 }
+
+const char* string::c_str() const{
+	return chaine_;
+}
 //destructor--------------------------------------------------------------
 string::~string(){
   delete chaine_;
@@ -51,13 +55,6 @@ string::~string(){
 
 //method---------------------------------------------------------
 
-char* string::c_str(){
-	char* c = new char[capacity_];
-	for(int k = 0 ; k!=len_+1 ; k++){
-		c[k] = chaine_[k];
-	}
-	return c;
-}
 
 int string::size(){
 	return len_;
