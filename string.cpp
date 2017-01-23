@@ -82,26 +82,27 @@ void string::reserve(size_t n/*=0*/){
 }
 
 void string::resize(const size_t n){
-	if (n < len_){
-		char* newword = new char[n];
-		for (int i = 0; i <= n-1; ++i){
-			newword[i] = chaine_[i];
+	if (n <= max_size_){
+		if (n < len_){
+			char* newword = new char[n];
+			for (int i = 0; i <= n-1; ++i){
+				newword[i] = chaine_[i];
+			}
+			delete[] chaine_;
+			newword[n]='\0';
+			capacity_=n;
+			chaine_ = newword;
+			len_ = n-1;
 		}
-		delete[] chaine_;
-		newword[n]='\0';
-		capacity_=n;
-		chaine_ = newword;
-		len_ = n-1;
-	}
-	if (n > len_){
-		capacity_=n;
-		char* newword = new char[capacity_];
-		for (int i = 0; i <= len_; ++i){
-			newword[i] = chaine_[i];
-		}		
-		delete[] chaine_;
-		chaine_=newword;
-
+		if (n > len_){
+			capacity_=n;
+			char* newword = new char[capacity_];
+			for (int i = 0; i <= len_; ++i){
+				newword[i] = chaine_[i];
+			}		
+			delete[] chaine_;
+			chaine_=newword;
+		}
 	}
 }
 
@@ -168,6 +169,8 @@ void string::cpy_mem(const char* mot){
 
 //-------------------------------------------------------------------------------
 //      out member functions
+
+
 // concatenate operator (+) for one object of the string class and a c-string
 string operator+ (const string& lhs, const char* rhs){
 	if (lhs.empty()){

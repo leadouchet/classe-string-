@@ -2,7 +2,9 @@
 #include <cstdio>
 
 class string {
-
+	friend string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
+	friend string operator+ (const string& lhs, char rhs);
+	friend string operator+ (const string& lhs, const string& rhs);
 	protected : 
 	static const size_t max_size_;			// Max capacity
 	size_t len_;						// Length of the string
@@ -27,23 +29,28 @@ class string {
 	const char* c_str() const;					// Return C string equivalent
 // method
 	bool empty() const;					// Test if string is empty
-	void reserve();					// Request a change in capacity
+	void reserve(size_t n);					// Request a change in capacity
 	size_t size() const;						// Return length of string
 	void clear();					// Clear string
-	void resize(const int n);		// Resize string
+	void resize(const size_t n);
+	void resize (size_t n, char c);		// Resize string
+
 
 //operator
+
+	string& operator= (char c); 	// affectation operator for a character
+	string& operator= (const string str);
 	string& operator=(const char* s);
-	friend string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
-	friend string operator+ (const string& lhs, char rhs);
-	friend string operator+ (const string& lhs, const string& rhs);
-	
+
 
        private :
 
-size_t len_char(const char* mot);
-void  cpy_mem(const char* mot);
-
-
+	size_t len_char(const char* mot);
+	void  cpy_mem(const char* mot);
 
 };
+
+// out member functions : 
+string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
+string operator+ (const string& lhs, char rhs);
+string operator+ (const string& lhs, const string& rhs);
