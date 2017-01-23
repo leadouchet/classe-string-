@@ -17,4 +17,9 @@ int main(){
 	
 	string c = string(b);
 	cout << c.size() << endl;
+	a = 'c';
+	cout<<a.length()<<endl;
+	cout<<a.capacity()<<endl;
+	cout << a.c_str() << endl;
+
 }

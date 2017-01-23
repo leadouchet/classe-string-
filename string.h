@@ -31,6 +31,6 @@ class string {
 	size_t size() const;						// Return length of string
 	void clear();					// Clear string
 	void resize(const int n);		// Resize string
-	
+	string& operator= (char c); 	// affectation operator for a character
 	string& operator= (const string& str);
 };

@@ -62,7 +62,7 @@ size_t string::size() const{
 }
 
 void string::clear(){
-	delete chaine_;
+	delete[] chaine_;
 	chaine_ = new char[capacity_];
 	len_ = 0;
 }
@@ -86,7 +86,7 @@ void string::resize(const int n){
 		for (int i = 0; i <= n-1; ++i){
 			newword[i] = chaine_[i];
 		}
-		delete chaine_;
+		delete[] chaine_;
 		newword[n]='\0';
 		capacity_=n+1;
 		chaine_ = new char [capacity_+1];
@@ -99,15 +99,24 @@ void string::resize(const int n){
 		for (int i = 0; i <= len_+1; ++i){
 			newword[i] = chaine_[i];
 		}		
-		delete chaine_;
+		delete[] chaine_;
 		chaine_=newword;
 
 	}
+}
 
+string& string::operator= (char c){
+	delete[] chaine_;
+	chaine_ = new char[2];
+	chaine_[0] = c;
+	chaine_ [1] = '\0';
+	len_ = 1;
+	return *this;
 }
 
 string& operator= (const string& str){
 	delete [] chaine_;
 	chaine_ = new char[str.capacity()];
 	chaine_ = str.c_str();
+	return *this;
 }
