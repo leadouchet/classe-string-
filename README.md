@@ -39,3 +39,10 @@ method
 	void clear() :  Erases the contents of the string, which becomes an empty string (with a length of 0 characters).
 	void resize(const size_t n, char c) : Resizes the string to a length of n characters. If a char c is given the empty 
                                               places of the capacity will be filed with c
+
+
+Protected attributs: 
+        max_size_ = Maximum length the string can reach.
+        len_ : Length of the string
+        capacity_ : Current capacity 
+        chaine_ : points to an array of char (content of the string)

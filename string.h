@@ -51,9 +51,9 @@ class string {
 };
 
 // out member functions : 
-string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
-string operator+ (const string& lhs, char rhs);
-string operator+ (const string& lhs, const string& rhs);
+	string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
+	string operator+ (const string& lhs, char rhs);
+	string operator+ (const string& lhs, const string& rhs);
 	size_t capacity() const;
 	size_t length() const;
 	size_t max_size() const;
@@ -77,5 +77,5 @@ string operator+ (const string& lhs, const string& rhs);
 };
 
 // out member functions : 
-string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
-string operator+ (const string& lhs, char rhs);
+	string operator+ (const string& lhs, const char* rhs); // + operator for concatenation of string with c-string
+	string operator+ (const string& lhs, char rhs);
