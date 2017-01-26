@@ -15,6 +15,8 @@ int main(){
 	string a = string(); 
 	string b = string(phrase);
 	string c = string(b);
+	
+
 
 	// getters : 
 	cout << "length = " << b.length() << " capacity = " << b.capacity() << endl;
@@ -26,7 +28,11 @@ int main(){
 	cout << "length " << b.length() << " capacity " << b.capacity() << endl;
 	cout << "a vide ? " << a.empty() << " b vide ? " << b.empty() << endl;
 	c.clear();
-	cout << c.length() << endl;
+	cout << "after clean " << c.length() << c.capacity() << endl;
+	cout<<""<< endl;
+	c.reserve(10);
+	cout << "request capacity 10 : " << c.capacity() << endl;
+	
 
 	
 	//operators : 
@@ -36,4 +42,16 @@ int main(){
 	cout << " chaine = " << a.c_str() << endl;
 	c = b;
 	cout << " chaine = " << c.c_str() << endl;
+	string e = phrase; 
+	cout << " chaine_e = " << e.c_str() << endl;
+
+	string d = b + c;
+	cout << "length = " << d.length() << " capacity = " << d.capacity() << endl;
+	cout << " max_size = " << d.max_size() << " chaine = " << d.c_str() << 
+	" size b = " << d.size() << endl;
+
+	string f = d + 'i';
+	cout << "length = " << f.length() << " capacity = " << f.capacity() << endl;
+	cout << " max_size = " << f.max_size() << " chaine = " << f.c_str() << 
+	" size b = " << f.size() << endl;
 }
