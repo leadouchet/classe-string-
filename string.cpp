@@ -1,35 +1,61 @@
 #include "string.h"
 #include <cstdlib>
 #include <cstdio>
+#include <iostream>
 
-//static attribute
+
+//---------------------------------------------------------------------------------------------
+//--------------------------------static attribute---------------------------------------------
+//---------------------------------------------------------------------------------------------
+
 const size_t  string::max_size_=100;
 
-//default constructor
+
+
+//---------------------------------------------------------------------------------------------
+//-------------------------------constructors--------------------------------------------------
+//---------------------------------------------------------------------------------------------
+
+
+//Default constructor
+
 string::string(){
-	capacity_=10;
-	chaine_= new char[capacity_];
-	len_=0;
+	capacity_ = 10;
+	chaine_ = new char[capacity_];
+	len_ = 0;
 }
-//constructors----------------------------------------------------
+
+
+//c-string constructor 
+
 string::string(const char* mot){
-  len_=len_char(mot);
+  len_ = len_char(mot);
   capacity_ = len_+1;
   chaine_ = new char[capacity_];
   for (int k = 0; k <= capacity_ ; ++k){
-    chaine_[k]=mot[k];
+    chaine_[k] = mot[k];
 	}
 }
+
+
+//Copy constructor
 
 string::string(const string& s){
 	capacity_ = s.capacity_;
 	len_ = s.len_;
 	chaine_ = new char[capacity_];
-	for(int k = 0 ; k!=len_+1 ; k++){
+	for(int k = 0 ; k != len_+1 ; k++){
 		chaine_[k] = s.chaine_[k];
 	}	
 }
-//getters------------------------------------------------------------
+
+
+
+//---------------------------------------------------------------------------------------------
+//-------------------------------geters--------------------------------------------------------
+//---------------------------------------------------------------------------------------------
+
+
 size_t string::capacity() const{
   return capacity_;
 }
@@ -45,26 +71,46 @@ size_t string::max_size() const{
 const char* string::c_str() const{
 	return chaine_;
 }
-//destructor--------------------------------------------------------------
+
+
+
+//---------------------------------------------------------------------------------------------
+//-------------------------------destructor----------------------------------------------------
+//---------------------------------------------------------------------------------------------
+
+
 string::~string(){
   delete[] chaine_;
-  chaine_= nullptr;
+  chaine_ = nullptr;
 }
 
-//method---------------------------------------------------------
 
+
+//---------------------------------------------------------------------------------------------
+//----------------------------------methods----------------------------------------------------
+//---------------------------------------------------------------------------------------------
+
+
+//len_ getter equivalent
 
 size_t string::size() const{
 	return len_;
 }
+
+
+//Clear string : erases the contents of the string
 
 void string::clear(){
 	delete[] chaine_;
 	chaine_ = new char[capacity_];
 	len_ = 0;
 }
+
+
+//Test if the string is empty
+
 bool string::empty() const{
-  if(len_==0){
+  if(len_ == 0){
     return(true);
   }
   else {
@@ -72,14 +118,18 @@ bool string::empty() const{
   }
 }
 
+
+//Request a change in capacity
+
 void string::reserve(size_t n/*=0*/){
-  if (n <= max_size_ && n>capacity_){
+  if (n <= max_size_ && n > capacity_){
      const int int_n = n;
      this->resize(int_n);
     }
-
-
 }
+
+
+//Resize string 
 
 void string::resize(const size_t n){
 	if (n <= max_size_){
@@ -89,22 +139,25 @@ void string::resize(const size_t n){
 				newword[i] = chaine_[i];
 			}
 			delete[] chaine_;
-			newword[n]='\0';
-			capacity_=n;
+			newword[n] ='\0';
+			capacity_ = n;
 			chaine_ = newword;
 			len_ = n-1;
 		}
 		if (n > len_){
-			capacity_=n;
+			capacity_ = n;
 			char* newword = new char[capacity_];
 			for (int i = 0; i <= len_; ++i){
 				newword[i] = chaine_[i];
 			}		
 			delete[] chaine_;
-			chaine_=newword;
+			chaine_ = newword;
 		}
 	}
 }
+
+
+//Resize string and fill with c (char)
 
 void string::resize (size_t n, char c){
 	resize(n);
@@ -117,7 +170,12 @@ void string::resize (size_t n, char c){
 	}
 }
 
-//operator -------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------------
+//---------------------------------- operators = ----------------------------------------------
+//---------------------------------------------------------------------------------------------
+//string assignement
+
 
 string& string::operator= (char c){
 	delete[] chaine_;
@@ -127,6 +185,7 @@ string& string::operator= (char c){
 	len_ = 1;
 	return *this;
 }
+
 
 string& string::operator= (const string str){
 	delete [] chaine_;
@@ -138,40 +197,50 @@ string& string::operator= (const string str){
 	}
 	return *this;
 }
+ 
 
 string& string::operator= (const char* s){
   delete [] chaine_;
-  capacity_=len_char(s)+1;
-  len_=len_char(s);
+  capacity_ = len_char(s)+1;
+  len_ = len_char(s);
   cpy_mem(s);
 }
 
-//private
 
+
+//---------------------------------------------------------------------------------------------
+//---------------------------------- private functions ----------------------------------------
+//---------------------------------------------------------------------------------------------
+
+
+//return length of c-string
 
 size_t string::len_char(const char* mot){
-    size_t compt=0;
+    size_t compt = 0;
     while (mot[compt] != '\0'){
 	++compt;
     }
     return(compt);
-    
-  }
+}
+
+//copy c-string in chaine_
 
 void string::cpy_mem(const char* mot){
   chaine_ = new char[capacity_];
-  for(int k = 0 ; k!=len_+1 ; k++){
+  for(int k = 0 ; k != len_+1 ; k++){
     chaine_[k] = mot[k];
   }
 }
 
 
 
-//-------------------------------------------------------------------------------
-//      out member functions
+//---------------------------------------------------------------------------------------------
+//----------------------------------  out member functions ------------------------------------
+//---------------------------------------------------------------------------------------------
 
 
 // concatenate operator (+) for one object of the string class and a c-string
+
 string operator+ (const string& lhs, const char* rhs){
 	if (lhs.empty()){
 		return string(rhs);
@@ -189,7 +258,9 @@ string operator+ (const string& lhs, const char* rhs){
 	}
 }
 
-// + operator for concatenation of string with char
+
+// concatenate operator (+) for one object of the string class and a char
+
 string operator+ (const string& lhs, char rhs){
 	string concate = string(lhs);
 	concate.len_ = lhs.len_ + 1;
@@ -199,4 +270,17 @@ string operator+ (const string& lhs, char rhs){
 	return concate;
 }
 
+
+// concatenate operator (+) for two objects of the string class 
+
+string operator+ (const string& lhs, const string& rhs){
+	string concate = string(lhs);
+	concate.len_ = lhs.len_ + rhs.len_;
+	concate.resize(concate.len_ + 1);
+	for(int i = 0; i < rhs.len_; i++){
+		concate.chaine_[lhs.len_+i] = rhs.chaine_[i];
+	}		
+	concate.chaine_[concate.len_+1] = '\0';
+	return(concate);	
+}
 
