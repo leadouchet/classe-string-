@@ -73,7 +73,7 @@ bool string::empty() const{
 }
 
 void string::reserve(size_t n/*=0*/){
-  if (n<=max_size_ && n>capacity_){
+  if (n <= max_size_ && n>capacity_){
      const int int_n = n;
      this->resize(int_n);
     }
