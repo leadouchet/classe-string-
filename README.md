@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------------------
                            STRING CLASS IMPLEMENTATION
 ---------------------------------------------------------------------------------------
-Author : Florian Peron, Léa Riera, Léa Douchet
+Groupe 9 : Florian Peron, Léa Riera, Léa Douchet
 TP C++ 3 BIM
 
 The string class provide tools to treat and modify string of single byte characters.
